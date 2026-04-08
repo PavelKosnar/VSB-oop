@@ -33,20 +33,36 @@ int main() {
     cout << "Celkovy pocet Client objektu: " << Client::GetObjectsCount() << endl << endl;
 
     Account::SetDefaultInterestRate(4.8);
-    cout << "Defaultni urokova sazba zmenena na 4.8 % (plati pro vsechny nove ucty)" << endl << endl;
+    cout << "Defaultni urokova sazba zmenena na 4.8 %" << endl << endl;
 
-    cout << "=== DEMO DEDICNOSTI A ZASTUPITELNOSTI (LSP) ===" << endl;
+    cout << "DEDICNOST A ZASTUPITELNOST" << endl;
     SavingsAccount* savings = new SavingsAccount(clients[0], 999);
     Account* basePtr = savings;
 
     cout << "Vytvoren SavingsAccount, pristupujeme pres Account* ukazatel" << endl;
     basePtr->AddMoney(15000);
-    cout << "Balance (pres basePtr): " << basePtr->GetBalance() << " Kc" << endl;
+    cout << "Balance: " << basePtr->GetBalance() << " Kc" << endl;
     basePtr->ApplyInterest();
-    cout << "Po ApplyInterest (4.8 %): " << basePtr->GetBalance() << " Kc" << endl;
+    cout << "Po ApplyInterest: " << basePtr->GetBalance() << " Kc" << endl;
     cout << "Aktualni uroková sazba: " << basePtr->GetInterestRate() << " %" << endl << endl;
 
-    cout << "Po vytvoreni SavingsAccount -> Account objekty: " 
+    cout << "--- Prekryti metody Withdraw ---" << endl;
+    
+    int castka = 15500;
+    cout << "Pokus o vyber " << castka << " Kc ze sporiciho uctu..." << endl;
+    if (basePtr->Withdraw(castka)) {
+        cout << "Vyber schvalen. Zustatek: " << basePtr->GetBalance() << " Kc" << endl;
+    } else {
+        cout << "Vyber ZAMITNUT: Pravidla sporiciho uctu nepovolila vyber" << endl;
+    }
+
+    castka = 5000;
+    if (basePtr->Withdraw(castka)) {
+        cout << "Vyber " << castka << " Kc schvalen. Novy zustatek: " << basePtr->GetBalance() << " Kc" << endl;
+    }
+    // ----------------------------------------------------
+
+    cout << "\nPo vytvoreni SavingsAccount -> Account objekty: " 
          << Account::GetObjectsCount() << endl;
 
     delete savings;
