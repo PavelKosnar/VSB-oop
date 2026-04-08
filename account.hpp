@@ -7,7 +7,7 @@
 using namespace std;
 
 class Account {
-    private:
+    protected:
         Client* client;
         Client* partner;
         int id;
@@ -20,7 +20,7 @@ class Account {
 
     public:
         Account(Client* c, int id);
-        ~Account();
+        virtual ~Account();
         int GetID();
         int GetBalance();
         void AddMoney(int m);
@@ -31,4 +31,7 @@ class Account {
         double GetInterestRate() const;
         void ApplyInterest();
         static int GetObjectsCount();
+
+        virtual bool CanWithdraw(int m); 
+        virtual bool Withdraw(int m);
 };

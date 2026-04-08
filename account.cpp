@@ -80,3 +80,15 @@ void Account::ApplyInterest() {
 int Account::GetObjectsCount() {
     return Account::objectsCount;
 }
+
+bool Account::CanWithdraw(int m) {
+    return this->balance >= m;
+}
+
+bool Account::Withdraw(int m) {
+    if (CanWithdraw(m)) {
+        this->balance -= m;
+        return true;
+    }
+    return false;
+}

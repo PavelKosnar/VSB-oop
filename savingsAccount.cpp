@@ -1,5 +1,5 @@
 #include <iostream>
-#include "savingsaccount.hpp"
+#include "savingsAccount.hpp"
 
 using namespace std;
 
@@ -9,4 +9,8 @@ SavingsAccount::SavingsAccount(Client* c, int id) : Account(c, id) {
 
 SavingsAccount::~SavingsAccount() {
     cout << "→ SavingsAccount destructor called" << endl;
+}
+
+bool SavingsAccount::CanWithdraw(int m) {
+    return Account::CanWithdraw(m); 
 }
