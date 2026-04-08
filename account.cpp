@@ -36,15 +36,15 @@ int Account::GetID() {
     return this->id;
 }
 
-int Account::GetBalance() {
+double Account::GetBalance() {
     return this->balance;
 }
 
-void Account::AddMoney(int m) {
+void Account::AddMoney(double m) {
     this->balance += m;
 }
 
-bool Account::SendMoney(Account* a, int m) {
+bool Account::SendMoney(Account* a, double m) {
     if (a == nullptr || this->balance < m) return false;
     this->balance -= m;
     a->AddMoney(m);
@@ -56,7 +56,7 @@ Client* Account::CreatePartner(Client* c) {
     return c;
 }
 
-CreditCard* Account::CreateCreditCard(int num, string n, Client* c, string e, int s, int b) {
+CreditCard* Account::CreateCreditCard(int num, string n, Client* c, string e, int s, double b) {
     CreditCard* newCard = new CreditCard(num, n, c, e, s, b);
     this->creditCards[this->creditCardsCount++] = newCard;
     return newCard;
@@ -81,12 +81,12 @@ int Account::GetObjectsCount() {
     return Account::objectsCount;
 }
 
-bool Account::CanWithdraw(int m) {
+bool Account::CanWithdraw(double m) {
     return this->balance >= m;
 }
 
-bool Account::Withdraw(int m) {
-    if (CanWithdraw(m)) {
+bool Account::Withdraw(double m) {
+    if (this->CanWithdraw(m)) {
         this->balance -= m;
         return true;
     }

@@ -3,8 +3,12 @@
 #include "account.hpp"
 
 class SavingsAccount : public Account {
+    private:
+        double credit;
     public:
-        SavingsAccount(Client* c, int id);
+        SavingsAccount(Client* client, int id, double c);
+        SavingsAccount(Client* client, int id, double c, double interest);
         ~SavingsAccount();
-        bool CanWithdraw(int m) override;
+        bool CanWithdraw(double m);
+        bool Withdraw(double m);
 };

@@ -13,11 +13,11 @@ class CreditCard {
         Client* client;
         string endDate;
         int secCode;
-        int balance;
+        double balance;
     
     public:
-        CreditCard(int num, string n, Client* c, string e, int s, int b);
+        CreditCard(int num, string n, Client* c, string e, int s, double b);
         ~CreditCard();
         string GetName();
-        int GetBalance();
+        double GetBalance();
 };

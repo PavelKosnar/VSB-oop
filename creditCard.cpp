@@ -3,7 +3,7 @@
 
 using namespace std;
 
-CreditCard::CreditCard(int num, string n, Client* c, string e, int s, int b) {
+CreditCard::CreditCard(int num, string n, Client* c, string e, int s, double b) {
     this->num = num;
     this->name = n;
     this->client = c;
@@ -20,6 +20,6 @@ string CreditCard::GetName() {
     return this->name;
 }
 
-int CreditCard::GetBalance() {
+double CreditCard::GetBalance() {
     return this->balance;
 }

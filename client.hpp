@@ -18,6 +18,7 @@ class Client {
 
     public:
         static int GetObjectsCount();
+        Client();
         Client(int c, string n);
         ~Client();
         int GetCode();

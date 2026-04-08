@@ -5,6 +5,14 @@ using namespace std;
 
 int Client::objectsCount = 0;
 
+Client::Client() {
+    this->code = objectsCount++;
+    this->name = "Unknown";
+    this->address = nullptr;
+    this->mailingAddresses = new Address*[10];
+    this->creditCard = nullptr;
+}
+
 Client::Client(int c, string n) {
     this->code = c;
     this->name = n;
