@@ -81,6 +81,10 @@ int Account::GetObjectsCount() {
     return Account::objectsCount;
 }
 
+void Account::SetBalance(double a) {
+    this->balance = a;
+}
+
 bool Account::CanWithdraw(double m) {
     return this->balance >= m;
 }

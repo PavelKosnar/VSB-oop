@@ -23,7 +23,7 @@ bool SavingsAccount::CanWithdraw(double m) {
 
 bool SavingsAccount::Withdraw(double m) {
     if (this->CanWithdraw(m)) {
-        this->balance -= m;
+        this->SetBalance(this->GetBalance() - m);
         return true;
     }
     return false; 

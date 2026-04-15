@@ -16,8 +16,6 @@ class Account {
         double interestRate;
         static double defaultInterestRate;
         static int objectsCount;
-
-    protected:
         double balance;
 
     public:
@@ -34,6 +32,8 @@ class Account {
         void ApplyInterest();
         static int GetObjectsCount();
 
-        bool CanWithdraw(double m);
+        void SetBalance(double a);
+
+        virtual bool CanWithdraw(double m);
         bool Withdraw(double m);
 };
