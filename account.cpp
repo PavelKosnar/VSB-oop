@@ -30,6 +30,8 @@ Account::~Account() {
     creditCards = nullptr;
     creditCardsCount = 0;
     Account::objectsCount--;
+
+    cout << "Account Destructor" << endl;
 }
 
 int Account::GetID() {

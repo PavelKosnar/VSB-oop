@@ -8,7 +8,7 @@ class SavingsAccount : public Account {
     public:
         SavingsAccount(Client* client, int id, double c);
         SavingsAccount(Client* client, int id, double c, double interest);
-        ~SavingsAccount();
+        virtual ~SavingsAccount();
         bool CanWithdraw(double m) override;
         bool Withdraw(double m);
 };

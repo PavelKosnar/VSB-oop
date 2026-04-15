@@ -14,7 +14,7 @@ SavingsAccount::SavingsAccount(Client* client, int id, double c, double interest
 }
 
 SavingsAccount::~SavingsAccount() {
-    //cout << "SavingsAccount destructor called" << endl;
+    cout << "SavingsAccount Destructor" << endl;
 }
 
 bool SavingsAccount::CanWithdraw(double m) {

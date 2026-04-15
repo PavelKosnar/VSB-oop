@@ -6,6 +6,7 @@
 #include "address.hpp"
 #include "creditCard.hpp"
 #include "savingsAccount.hpp"
+#include "abstractAccount.hpp"
 
 using namespace std;
 
@@ -85,6 +86,14 @@ int main() {
 
     a = nullptr;
     delete sa;
+
+    cout << "\n\nABSTRAKCE" << endl;
+    Client *abstract_o = new Client(123, "Sparrow");
+    SavingsAccount *abstract_sa = new SavingsAccount(abstract_o, 124, 5000);
+    AbstractAccount *aa = abstract_sa;
+
+    delete aa;
+    delete abstract_o;
 
 
     return 0;

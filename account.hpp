@@ -3,10 +3,11 @@
 #include <iostream>
 #include "client.hpp"
 #include "creditCard.hpp"
+#include "abstractAccount.hpp"
 
 using namespace std;
 
-class Account {
+class Account : public AbstractAccount {
     private:
         Client* client;
         Client* partner;
@@ -20,7 +21,8 @@ class Account {
 
     public:
         Account(Client* c, int id);
-        ~Account();
+        virtual ~Account();
+
         int GetID();
         double GetBalance();
         void AddMoney(double m);
@@ -33,7 +35,6 @@ class Account {
         static int GetObjectsCount();
 
         void SetBalance(double a);
-
         virtual bool CanWithdraw(double m);
         bool Withdraw(double m);
 };
